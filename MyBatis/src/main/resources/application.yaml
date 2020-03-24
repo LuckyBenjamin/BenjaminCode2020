@@ -1,0 +1,27 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /benjamin
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql:///test?serverTimezone=GMT
+    username: root
+    password: root
+  http:
+    encoding:
+      force: true
+      force-request: true
+      force-response: true
+      charset: UTF-8
+mybatis:
+  mapper-locations: classpath:/mappers/*.xml
+  type-aliases-package: com.benjamin.bean
+pagehelper:
+  reasonable: true
+logging:
+  level:
+    com.benjamin.mapper: DEBUG
+
+thread-pool:
+  count: 10

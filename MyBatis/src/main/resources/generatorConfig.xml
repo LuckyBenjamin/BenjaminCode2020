@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <classPathEntry location="F:\DevelopSoftware\apache-maven-3.6.3\repositoryBizvane\mysql\mysql-connector-java\5.1.46\mysql-connector-java-5.1.46.jar" /><!--修改1 驱动路径-->
+    <!--MyBatis3Simple表示不生成Example，flat表示一张表生成一个POJO-->
+    <context id="DB2Tables" targetRuntime="MyBatis3Simple" defaultModelType="flat"><!--修改2 连接信息-->
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+
+        <!--引入通用mapper的支持-->
+        <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+            <property name="mappers" value="tk.mybatis.mapper.common.Mapper"/>
+            <property name="caseSensitive" value="true"/>
+        </plugin>
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql:///test"
+                        userId="root"
+                        password="root">
+        </jdbcConnection>
+
+        <javaTypeResolver >
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+                                    <!--修改3 生成实体类的位置-->
+        <javaModelGenerator targetPackage="com.benjamin.bean" targetProject="src\main\java">
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+                                    <!--修改4 生成xml的位置-->
+        <sqlMapGenerator targetPackage="mappers"  targetProject="src\main\resources">
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+                                    <!--修改5 生成mapper的位置-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.benjamin.mapper"  targetProject="src\main\java">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+
+
+        <table schema="test" tableName="market_activity" domainObjectName="marketActivity" >
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table>
+    </context>
+</generatorConfiguration>

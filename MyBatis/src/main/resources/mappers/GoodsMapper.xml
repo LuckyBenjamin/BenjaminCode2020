@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.benjamin.mapper.GoodsMapper">
+  <resultMap id="BaseResultMap" type="com.benjamin.bean.Goods">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="merchant_id" jdbcType="INTEGER" property="merchantId" />
+    <result column="category_first_id" jdbcType="INTEGER" property="categoryFirstId" />
+    <result column="category_second_id" jdbcType="INTEGER" property="categorySecondId" />
+    <result column="category_third_id" jdbcType="INTEGER" property="categoryThirdId" />
+    <result column="express_template_id" jdbcType="INTEGER" property="expressTemplateId" />
+    <result column="goods_no" jdbcType="VARCHAR" property="goodsNo" />
+    <result column="sku_no" jdbcType="VARCHAR" property="skuNo" />
+    <result column="goods_name" jdbcType="VARCHAR" property="goodsName" />
+    <result column="is_gift" jdbcType="INTEGER" property="isGift" />
+    <result column="is_uniform" jdbcType="BIT" property="isUniform" />
+    <result column="cover_img" jdbcType="VARCHAR" property="coverImg" />
+    <result column="banner_img_paths" jdbcType="VARCHAR" property="bannerImgPaths" />
+    <result column="video_paths" jdbcType="VARCHAR" property="videoPaths" />
+    <result column="commission_rate" jdbcType="DECIMAL" property="commissionRate" />
+    <result column="actual_sales" jdbcType="INTEGER" property="actualSales" />
+    <result column="custom_start_sales" jdbcType="INTEGER" property="customStartSales" />
+    <result column="stock" jdbcType="INTEGER" property="stock" />
+    <result column="sale_price" jdbcType="DECIMAL" property="salePrice" />
+    <result column="market_price" jdbcType="DECIMAL" property="marketPrice" />
+    <result column="intro_id" jdbcType="INTEGER" property="introId" />
+    <result column="limitation" jdbcType="INTEGER" property="limitation" />
+    <result column="free_post" jdbcType="BIT" property="freePost" />
+    <result column="is_shelved" jdbcType="BIT" property="isShelved" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+    <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate" />
+    <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified" />
+    <result column="is_del" jdbcType="BIT" property="isDel" />
+    <result column="video_img" jdbcType="VARCHAR" property="videoImg" />
+    <result column="assemble_num" jdbcType="INTEGER" property="assembleNum" />
+    <result column="shipping_mode" jdbcType="INTEGER" property="shippingMode" />
+    <result column="price_system" jdbcType="INTEGER" property="priceSystem" />
+    <result column="integral_points" jdbcType="BIGINT" property="integralPoints" />
+    <result column="offline_goods_id" jdbcType="VARCHAR" property="offlineGoodsId" />
+  </resultMap>
+  <select id="getInfo" resultMap="BaseResultMap">
+    select * from `goods` where merchant_id = 80
+  </select>
+</mapper>
