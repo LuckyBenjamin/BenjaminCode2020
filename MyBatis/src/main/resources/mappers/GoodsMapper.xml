@@ -39,8 +39,9 @@
     <result column="price_system" jdbcType="INTEGER" property="priceSystem" />
     <result column="integral_points" jdbcType="BIGINT" property="integralPoints" />
     <result column="offline_goods_id" jdbcType="VARCHAR" property="offlineGoodsId" />
+    <result column="valid" jdbcType="BIT" property="valid" />
   </resultMap>
   <select id="getInfo" resultMap="BaseResultMap">
-    select * from `goods` where merchant_id = 80
+    select * from `goods` where merchant_id = #{merchantId} and valid = 1
   </select>
 </mapper>

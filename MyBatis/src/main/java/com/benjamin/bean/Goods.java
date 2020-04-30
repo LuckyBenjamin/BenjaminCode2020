@@ -35,6 +35,9 @@ public class Goods implements Serializable {
     @Column(name = "category_second_id")
     private Integer categorySecondId;
 
+    @Column(name = "valid")
+    private Boolean valid;
+
     /**
      * 三级类目ID
      */
